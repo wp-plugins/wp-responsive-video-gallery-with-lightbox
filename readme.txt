@@ -117,7 +117,6 @@ OR you can add this to your theme by adding this code echo do_shortcode('[print_
 
 
 
-
 == License ==
 
 This plugin is free for everyone! Since it's released under the GPL, you can use it free of charge on your personal or commercial blog. But you can make some donations if you realy find it useful.
