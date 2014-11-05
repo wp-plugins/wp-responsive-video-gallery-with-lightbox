@@ -113,6 +113,7 @@ OR you can add this to your theme by adding this code echo do_shortcode('[print_
 7. PRO Version Manage Video
 8. PRO Version Add Video
 9. PRO Version video gallery
+
 10.PRO Version Lightbox
 
 
