@@ -75,7 +75,6 @@ function responsive_video_gallery_plus_lightbox_load_styles_and_js() {
 function install_responsive_video_gallery_plus_lightbox() {
 	global $wpdb;
 	$table_name = $wpdb->prefix . "responsive_video_gallery_plus_responsive_lightbox";
-	$table_name2 = $wpdb->prefix . "responsive_video_gallery_plus_responsive_lightbox_settings";
 	
 	$sql = "CREATE TABLE " . $table_name . " (
         `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1751,8 +1750,6 @@ function responsive_video_gallery_with_lightbox_video_management_func() {
 }
 function responsive_video_gallery_with_lightbox_video_preview_func() {
 	global $wpdb;
-	$query = "SELECT * FROM " . $wpdb->prefix . "responsive_video_gallery_plus_responsive_lightbox_settings order by createdon desc";
-	$rows = $wpdb->get_results ( $query, 'ARRAY_A' );
 	
 
 	$settings=get_option('responsive_video_gallery_slider_settings');
