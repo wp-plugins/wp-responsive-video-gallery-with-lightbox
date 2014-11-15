@@ -22,6 +22,9 @@ Admin can add,edit and delete videos.admin can set video title to lightbox.Befor
 
 **[Live Demo WordPress Responsive Video Gallery With Lightbox](http://www.i13websolution.com/wpdemo/responsive-video-gallery-lightbox-demo/)**
 
+**[Pro Plugin Video](https://www.youtube.com/watch?v=McMQJjHxi_4)**
+
+
 
 **Please rate this plugin if you find it useful**
 
@@ -113,8 +116,7 @@ OR you can add this to your theme by adding this code echo do_shortcode('[print_
 7. PRO Version Manage Video
 8. PRO Version Add Video
 9. PRO Version video gallery
-
-10.PRO Version Lightbox
+10. PRO Version Lightbox
 
 
 
