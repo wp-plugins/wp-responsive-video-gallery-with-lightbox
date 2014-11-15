@@ -1,4 +1,4 @@
-=== WP Responsive Video Gallery With Lightbox ===
+=== Responsive Video Gallery With Lightbox ===
 Contributors:nik00726
 Donate link:http://www.i13websolution.com/donate-wordpress_image_thumbnail.php
 Tags:wordpress video gallery lightbox,wordpress responsive youtube gallery,wordpress responsive vimeo gallery,wordpress lightbox video gallery,wordpress video slideshow,wordpress metacafe gallery,wordpress dailymotion gallery
