@@ -10,7 +10,7 @@
 error_reporting ( 0 );
 add_filter ( 'widget_text', 'do_shortcode' );
 add_action ( 'admin_menu', 'responsive_video_gallery_plus_lightbox_add_admin_menu' );
-add_action ( 'admin_init', 'responsive_video_gallery_plus_lightbox_add_admin_init' );
+//add_action ( 'admin_init', 'responsive_video_gallery_plus_lightbox_add_admin_init' );
 register_activation_hook ( __FILE__, 'install_responsive_video_gallery_plus_lightbox' );
 add_action ( 'wp_enqueue_scripts', 'responsive_video_gallery_plus_lightbox_load_styles_and_js' );
 add_shortcode ( 'print_responsive_video_gallery_plus_lightbox', 'print_responsive_video_gallery_plus_lightbox_func' );
@@ -131,10 +131,15 @@ function install_responsive_video_gallery_plus_lightbox() {
         
 }
 function responsive_video_gallery_plus_lightbox_add_admin_menu() {
-	add_menu_page ( __ ( 'Responsive Video Gallery Plus Lightbox' ), __ ( 'Video Gallery with Lightbox' ), 'administrator', 'responsive_video_gallery_with_lightbox', 'responsive_video_gallery_with_lightbox_admin_options_func' );
-	add_submenu_page ( 'responsive_video_gallery_with_lightbox', __ ( 'Gallery Settings' ), __ ( 'Gallery Settings' ), 'administrator', 'responsive_video_gallery_with_lightbox', 'responsive_video_gallery_with_lightbox_admin_options_func' );
-	add_submenu_page ( 'responsive_video_gallery_with_lightbox', __ ( 'Manage Videos' ), __ ( 'Manage Videos' ), 'administrator', 'responsive_video_gallery_with_lightbox_video_management', 'responsive_video_gallery_with_lightbox_video_management_func' );
-	add_submenu_page ( 'responsive_video_gallery_with_lightbox', __ ( 'Preview Gallery' ), __ ( 'Preview Gallery' ), 'administrator', 'responsive_video_gallery_with_lightbox_video_preview', 'responsive_video_gallery_with_lightbox_video_preview_func' );
+	$hook_suffix=add_menu_page ( __ ( 'Responsive Video Gallery Plus Lightbox' ), __ ( 'Video Gallery with Lightbox' ), 'administrator', 'responsive_video_gallery_with_lightbox', 'responsive_video_gallery_with_lightbox_admin_options_func' );
+	$hook_suffix=add_submenu_page ( 'responsive_video_gallery_with_lightbox', __ ( 'Gallery Settings' ), __ ( 'Gallery Settings' ), 'administrator', 'responsive_video_gallery_with_lightbox', 'responsive_video_gallery_with_lightbox_admin_options_func' );
+	$hook_suffix_image=add_submenu_page ( 'responsive_video_gallery_with_lightbox', __ ( 'Manage Videos' ), __ ( 'Manage Videos' ), 'administrator', 'responsive_video_gallery_with_lightbox_video_management', 'responsive_video_gallery_with_lightbox_video_management_func' );
+	$hook_suffix_prev=add_submenu_page ( 'responsive_video_gallery_with_lightbox', __ ( 'Preview Gallery' ), __ ( 'Preview Gallery' ), 'administrator', 'responsive_video_gallery_with_lightbox_video_preview', 'responsive_video_gallery_with_lightbox_video_preview_func' );
+	
+	add_action( 'load-' . $hook_suffix , 'responsive_video_gallery_plus_lightbox_add_admin_init' );
+	add_action( 'load-' . $hook_suffix_image , 'responsive_video_gallery_plus_lightbox_add_admin_init' );
+	add_action( 'load-' . $hook_suffix_prev , 'responsive_video_gallery_plus_lightbox_add_admin_init' );
+	
 }
 function responsive_video_gallery_plus_lightbox_add_admin_init() {
 	$url = plugin_dir_url ( __FILE__ );
