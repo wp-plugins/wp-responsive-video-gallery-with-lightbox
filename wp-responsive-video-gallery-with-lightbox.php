@@ -1,8 +1,8 @@
 <?php
 /*
  * Plugin Name: WP Responsive Video Gallery With Lightbox 
- * Plugin URI:http://www.i13websolution.com 
- * Author URI:http://www.i13websolution.com 
+ * Plugin URI:http://www.i13websolution.com/wordpress-responsive-video-gallery-with-lightbox-pro.html 
+ * Author URI:http://www.i13websolution.com/wordpress-responsive-video-gallery-with-lightbox-pro.html 
  * Description:This is beautiful responsive video gallery with responsive lightbox.Add any number of video from admin panel. 
  * Author:I Thirteen Web Solution 
  * Version:1.0
