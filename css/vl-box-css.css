@@ -44,6 +44,8 @@
 	width: 100%;
 	z-index: 1100;
 	display: none;
+box-sizing:content-box;
+
 }
 
 #fancybox-tmp {
@@ -63,6 +65,9 @@
 	outline: none;
 	display: none;
 	z-index:9999;
+box-sizing:content-box;
+
+
 }
 
 #fancybox-outer {
@@ -73,7 +78,8 @@
 	-webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.50);
 	-moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.50);
 	box-shadow: 0px 0px 15px rgba(0,0,0,0.50);
-	filter: progid: DXImageTransform.Microsoft.Blur (pixelradius = 15, enabled = "true") 
+	filter: progid: DXImageTransform.Microsoft.Blur (pixelradius = 15, enabled = "true") ;
+        box-sizing:content-box;
 }
 
 #fancybox-content {
@@ -85,6 +91,8 @@
 	overflow: hidden;
 	z-index: 1102;
 	border: 0px solid #fff; 
+        box-sizing:content-box;
+
 }
 
 #fancybox-hide-sel-frame {
@@ -95,6 +103,9 @@
 	height: 100%;
 	background: transparent;
 	z-index: 1101;
+box-sizing:content-box;
+
+
 }
 
 #fancybox-close {
@@ -130,6 +141,9 @@
 	height: 100%;
 	border: none;
 	display: block;
+box-sizing:content-box;
+
+
 }
 
 #fancybox-left_, #fancybox-right_{

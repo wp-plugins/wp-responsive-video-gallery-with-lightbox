@@ -22,7 +22,7 @@
     padding: 0 !important;
     *zoom: 1 !important;
 }
-
+.bx-wrapper * {box-sizing:content-box}
 
 .bx-wrapper .bx-viewport {padding: 5px !important;left: -5px !important;}
 .bx-wrapper img {
