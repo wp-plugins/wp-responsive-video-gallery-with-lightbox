@@ -9,7 +9,6 @@ Version:1.0
 Stable tag:trunk
 License:GPLv2 or later
 License URI:http://www.gnu.org/licenses/gpl-2.0.html
-
 == Description ==
 
 **Support Upto WordPress 4.1**
@@ -20,7 +19,7 @@ Admin can add,edit and delete videos.admin can set video title to lightbox.Befor
 
 **Find WordPress Responsive Video Gallery Pro Plugin (Unlimited Video Gallary+Much more fatures) at [WordPress Responsive Video Gallery With Lightbox Pro Plugin](http://www.i13websolution.com/wordpress-responsive-video-gallery-with-lightbox-pro.html)**
 
-**[Live Demo WordPress Responsive Video Gallery With Lightbox](http://www.i13websolution.com/wpdemo/responsive-video-gallery-lightbox-demo/)**
+**[Live Demo WordPress Responsive Video Gallery With Lightbox](http://blog.i13websolution.com/live-preview-wp-responsive-video-gallery/)**
 
 **[Pro Plugin Video](https://www.youtube.com/watch?v=McMQJjHxi_4)**
 
