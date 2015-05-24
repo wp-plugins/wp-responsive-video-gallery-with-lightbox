@@ -4,14 +4,13 @@ Donate link:http://www.i13websolution.com/donate-wordpress_image_thumbnail.php
 Tags:wordpress video gallery lightbox,wordpress responsive youtube gallery,wordpress responsive vimeo gallery,wordpress lightbox video gallery,wordpress video slideshow,wordpress metacafe gallery,wordpress dailymotion gallery
 
 Requires at least:3.0
-Tested up to:4.1
+Tested up to:4.2.2
 Version:1.0
 Stable tag:trunk
 License:GPLv2 or later
 License URI:http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
-**Support Upto WordPress 4.1**
 
 This is beautiful responsive video gallery slider with responsive lightbox for WordPress blogs and sites.Admin can manages any number of videos into the gallery slider.
 Admin can add,edit and delete videos.admin can set video title to lightbox.Before add gallery to wordPress blog admin can preview a video gallery.Admin can set height,width of slider video images.Admin can also set speed,Number of visible video into video slider,set slider as circular slider.Admin can also set if want to slider images with left and right arrow or by automatic slider.Free version only support youtube and dailymotion.Pro version can support Youtube,Vimeo,Metacafe,DailyMotion.

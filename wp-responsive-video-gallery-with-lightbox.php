@@ -17,7 +17,72 @@ add_shortcode ( 'print_responsive_video_gallery_plus_lightbox', 'print_responsiv
 add_action ( 'admin_notices', 'responsive_video_gallery_plus_lightbox_admin_notices' );
 
 add_action( 'wp_ajax_check_file_exist', 'check_file_exist_callback' );
+add_action( 'wp_ajax_get_youtube_info', 'get_youtube_info_callback' );
 
+function get_youtube_info_callback(){
+  
+    if(isset($_POST) and is_array($_POST) and  isset($_POST['url'])){
+        
+                $vid=$_POST['vid'];
+                $url=$_POST['url']; 
+                $ch = curl_init();
+		
+		// Set the URL
+		curl_setopt($ch, CURLOPT_URL, $url);
+		
+		// Removes the headers from the output
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		
+		// Return the output instead of displaying it directly
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		
+		curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+		@curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		
+		// Execute the curl session
+		$output = curl_exec($ch);
+		
+		// Close the curl session
+		curl_close($ch);
+                $output=json_decode($output);
+                
+                
+                $videoInfo=  file_get_contents("https://www.youtube.com/watch?v=$vid");
+
+                $doc = new DomDocument;
+
+                $doc->validateOnParse = false;
+                
+                $doc->loadHTML($videoInfo);
+
+                $node= $doc->getElementById('watch-description-text');
+                
+                $description='';
+                if($node!=null and $node!=false){
+                
+                  $description = $node->ownerDocument->saveHTML( $node );
+
+                  $description=  strip_tags($description,'<br>');
+                  
+                  $breaks = array("<br />","<br>","<br/>");  
+                  $description = str_ireplace($breaks, "\r\n", $description);  
+                }
+ 
+                $return=array();
+                if(is_object($output)){
+                   
+                 $return['title']=$output->title;
+                 $return['thumbnail_url']=$output->thumbnail_url;
+                 $return['description']=$description;
+                 
+               }
+                
+          echo json_encode($return);
+          exit;
+        
+    }
+    
+}
 
 function check_file_exist_callback() {
 	
@@ -1280,19 +1345,29 @@ function responsive_video_gallery_with_lightbox_video_management_func() {
 
                                                                     																				
                                                                       		  
-                                                                              var youtubeJsonUri='http://gdata.youtube.com/feeds/api/videos/'+vId+'?v=2&alt=jsonc';
-                                                                              $n.getJSON( youtubeJsonUri, function( data ) {
-                                                                                 
+                                                                              var youtubeJsonUri='http://www.youtube.com/oembed?url=https://www.youtube.com/watch%3Fv='+vId+'&format=json';
+                                                                               var data_youtube = {
+                                                                    			'action': 'get_youtube_info',
+                                                                    			'url': youtubeJsonUri,
+                                                                                        'vid':vId
+                                                                    		};
+                                                                                
+                                                                              $n.post(ajaxurl, data_youtube, function(data) {
+                                                                              
+                                                                               data = $n.parseJSON(data);
+                                                                               
                                                                                if(typeof data =='object'){    
-                                                                                       if(typeof data.data =='object'){ 
+                                                                                       if(typeof data =='object'){ 
                                                                                         
-                                                                                            if(data.data.title!='' && data.data.title!=''){
-                                                                                                $n("#videotitle").val(data.data.title); 
+                                                                                            if(data.title!='' && data.title!=''){
+                                                                                                $n("#videotitle").val(data.title); 
                                                                                             }
                                                                                             $n("#videotitleurl").val(videourlVal);
-                                                                                           
-                                                                                            if(response=='404' && data.data.thumbnail.hqDefault!='' && data.data.thumbnail.hqDefault!=''){
-                                                                                            	 tumbnailImg=data.data.thumbnail.hqDefault;
+                                                                                            if(data.description!='' && data.description!=''){
+                                                                                                $n("#video_description").val(data.description); 
+                                                                                            }
+                                                                                            if(response=='404' && data.thumbnail_url!=''){
+                                                                                            	 tumbnailImg=data.thumbnail_url;
                                                                                             }
                                                                                             else{
                                                                                             	 tumbnailImg='http://img.youtube.com/vi/'+vId+'/0.jpg';
