@@ -892,8 +892,8 @@
 
 				} else {
                                     
-				    if(typeof uniqObj != 'undefined'){
-				       if(uniqObj!=''){
+				    if(typeof options.uniqObj != 'undefined'){
+				       if(options.uniqObj!=''){
                                 	
                                         selectedArray=options.uniqObj;
 				       }
